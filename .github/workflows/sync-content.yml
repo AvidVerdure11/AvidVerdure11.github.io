@@ -1,0 +1,30 @@
+name: Sync Content from dorsikret.github.io
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout AvidVerdure11.github.io
+      uses: actions/checkout@v3
+
+    - name: Checkout dorsikret.github.io
+      uses: actions/checkout@v3
+      with:
+        repository: dorsikret/dorsikret.github.io
+        token: ${{ secrets.PAT }}
+        path: blogA
+
+    - name: Sync Posts
+      run: |
+        rsync -av --exclude='.git' blogA/_posts/ ./_posts/
+        git config --global user.name "github-actions"
+        git config --global user.email "actions@github.com"
+        git add .
+        git commit -m "Sync content from dorsikret.github.io"
+        git push
