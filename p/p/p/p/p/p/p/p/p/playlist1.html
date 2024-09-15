@@ -39,14 +39,9 @@ image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZN3rXMmbhExN
 
         
 
-<div id="labelContainer">
-  <button id="toggleButton" onclick="toggleLabels()" style="background: transparent; border: 1px solid #ccc00000; padding: 10px; cursor: pointer;">
-    .
-  </button>
-  <div id="labelList" style="display: none;"></div> <!-- Hidden by default -->
-</div>
 
-<script>
+
+  <script>
   function rak_info_Load(data) {
     const entries = data.feed.entry;
     const labelSet = new Set();
@@ -101,16 +96,5 @@ image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZN3rXMmbhExN
   document.body.appendChild(script);
 </script>
 
-<!-- Optional CSS for further button styling -->
-<style>
-  #toggleButton {
-    transition: background-color 0.3s, color 0.3s;
-  }
-  #toggleButton:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* Slight darkening on hover */
-    color: #333; /* Change text color on hover */
-  }
-</style>
 
-        
     
